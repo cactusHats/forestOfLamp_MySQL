@@ -35,6 +35,11 @@ void ofApp::setup() {
 
 	currentTableData = readTable(); //テーブルデータの参照
 	previousTableData = currentTableData; //データの更新
+
+	cout << "---------------------" << endl;
+	cout << "--- Process start ---"	<< endl;
+	cout << "---------------------" << endl;
+	cout << endl;
 }
 
 //--------------------------------------------------------------
