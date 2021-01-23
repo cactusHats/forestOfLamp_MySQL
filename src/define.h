@@ -7,9 +7,9 @@ enum class Color {
 	NUM_COLOR
 };
 
-//osc
+//OSC通信
 #define IP_HOST "localhost"
-#define PORT_TO_LCON 9000
+#define PORT_TO_LCON 9000 //ledControlへのポート
 
-//読み取りに行く間隔[sec]
+//DBからデータを読み取る間隔[sec]
 #define READ_INTERVAL 1

@@ -32,7 +32,6 @@ void ofApp::setup() {
 
 	connectToMySQL(); //MySQLへ接続
 	//resetTable(); //DBのリセット
-	//readTable(); //テーブルデータの参照
 
 	currentTableData = readTable(); //テーブルデータの参照
 	previousTableData = currentTableData; //データの更新
@@ -43,11 +42,10 @@ void ofApp::update() {
 
 	if ((clock() - timeThen) > READ_INTERVAL * 1000) {
 		currentTableData = readTable(); //テーブルデータの参照
-		sendData = checkDifference(previousTableData, currentTableData); //差異の確認
+		sendData = checkDifference(previousTableData, currentTableData); //前回読み取りデータとの差異の確認
 		sendPacketToLedController(sendData); //データの送信
 		
 		previousTableData = currentTableData; //データの更新
-
 
 		timeThen = clock();
 	}
@@ -188,59 +186,4 @@ string ofApp::getTime() {
 		h = ofToString(ofGetHours(), 0);
 
 	return h + ":" + m + ":" + s;
-}
-
-//--------------------------------------------------------------
-void ofApp::keyPressed(int key) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::keyReleased(int key) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseDragged(int x, int y, int button) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mousePressed(int x, int y, int button) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseReleased(int x, int y, int button) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseEntered(int x, int y) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseExited(int x, int y) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::windowResized(int w, int h) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::gotMessage(ofMessage msg) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo) {
-
 }
